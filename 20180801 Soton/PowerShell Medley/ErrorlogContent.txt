@@ -1,0 +1,24 @@
+
+# Get-content
+PS C:\> $LogFile = "\Program Files\Microsoft SQL Server\MSSQL11.SQL2012Inst1\MSSQL\Log\ERRORLOG" 
+PS C:\> $LogMsg = Get-Content $LogFile 
+PS C:\> [Regex]::Match($LogMsg, "Detected (\d+) MB of RAM")
+
+
+# SMO - ReadErrorlog method
+$SQLServer = Get-Item SQLServer:\SQL\Contoso\SQL2012Inst1 
+PS C:\> $SQLServer.ReadErrorLog() | Where-Object {$_.Text –match 'failed|error' –and $_.ProcessInfo –like 'backup'} 
+
+
+get-content is faster but readerrorlog returns a table that can be filtered and selected
+
+$MatchedvValues = [Regex]::Match($LogMsg, "\d+ total logical processors")
+$MatchedvValues | Get-Member
+
+Find memory "Detected (\d+) MB of RAM"
+
+Find port "<ipv4> (\d+)"
+
+Authentication mode "Authentication mode.+(\w+)"
+
+Build # ".+(\d{1,2}.\d{1,2}.\d{3,4}.\d*)"
