@@ -14,3 +14,6 @@ Get-ChildItem
 # isnt it easier if we pause the stream of items as it is displayed ....
 Get-ChildItem | Where-Object {$_.Length -gt 1MB} | sort-object name | more
 
+Get-Help about_ | more 
+
+Get-Help about_regular_expressions -full | more 
