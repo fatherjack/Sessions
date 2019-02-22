@@ -6,7 +6,11 @@
 
 About splatting <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_splatting?view=powershell-6>
 
+Backup-SqlDatabase <https://docs.microsoft.com/en-us/powershell/module/sqlserver/backup-sqldatabase?view=sqlserver-ps>
+
 ## 01a DBRestore
+
+Restore-SqlDatabase <https://docs.microsoft.com/en-us/powershell/module/sqlserver/backup-sqldatabase?view=sqlserver-ps>
 
 ## 02 Custom Prompt
 
@@ -15,7 +19,9 @@ Custom Prompt <https://gist.github.com/fatherjack/9c005403b2ffcd95ce5c30d1dc5213
 ## 03 Event Logs
 
 Windows Event Log <https://docs.microsoft.com/en-us/windows/desktop/WES/windows-event-log>
+
 Event Viewer <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc766042(v=ws.11)>
+
 Event Logs <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc722404(v%3dws.11)>
 
 ## 04 SQL Query

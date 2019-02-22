@@ -14,13 +14,18 @@ else {
     $SMOTestDB.create()
     "TestDB created"
 }
-
+$SMOServer.Refresh()
 if ($SMOServer.Databases['PSRESTORE']) {
-    "PSRESTORE exists" | Write-Host -ForegroundColor Red
-    $SMOPSRESTORE = new-object 'Microsoft.SQLServer.Management.Smo.Database' ( $SMOServer, "PSRESTORE")
-    $SMOServer.KillAllProcesses("PSRESTORE")
-    $SMOPSRESTORE.Drop()
-    "PSRESTORE dropped" | Write-Host -ForegroundColor Green
+    try {
+        "PSRESTORE exists" | Write-Host -ForegroundColor Red
+        $SMOServer.Databases["PSRESTORE"].Drop()
+        "PSRESTORE dropped" | Write-Host -ForegroundColor Green
+    }
+    catch {
+        $e = $error[0]
+        Write-Warning "Unable to drop PSRESTORE database"
+        $e.exception.GetBaseException()
+    }
 }
 else {
     "No PSRESTORE db" | Write-Host -ForegroundColor Green
@@ -39,6 +44,9 @@ try {
         "Firewall rule doesnt exist" | Write-Host -ForegroundColor Green
     }
 }
-catch {}
+catch {
+    $e = $error[0]
+    $e.Exception.GetBaseException()
+}
 
 $ErrorActionPreference = $ErrAction

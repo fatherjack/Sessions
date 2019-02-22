@@ -4,6 +4,9 @@
 # easy to do
 # but tricky to read ...
 
+# clear out backup target for demo
+$BackupFile = "C:\Backups\2016\TestDB.bak"
+if ($BackupFile) {Remove-Item $BackupFile}
 
 # some commands are just bad news for readability
 Backup-SqlDatabase -BackupSetName "A database Full Backup" -MediaDescription "The daily full backup for our favourite database." -ServerInstance "$env:COMPUTERNAME\sql2016" -Database "TestDB" -BackupFile "C:\Backups\2016\TestDB.bak" -BackupAction "Database" -CompressionOption On -Initialize -FormatMedia
@@ -18,7 +21,7 @@ $Params = @{
     MediaDescription  = "The daily full backup for our favourite database." 
     ServerInstance    = "$env:COMPUTERNAME\sql2016" 
     Database          = "TestDB"
-    BackupFile        = "C:\Backups\2016\TestDB.bak"
+    BackupFile        = $BackupFile
     BackupAction      = "Database" 
     Initialize        = $true
     CompressionOption = "on"
@@ -40,7 +43,9 @@ $Params = @{
     Initialize       = $true
 }
 $r = Backup-SqlDatabase @Params -PassThru 
-ri variable:r
+
+# Remove-Item variable:r
+
 $r | Get-Member
 
 $r | Select-Object database, mediadescription, databasefiles
@@ -88,7 +93,7 @@ $BackupMedia = Invoke-Sqlcmd -ServerInstance "$env:COMPUTERNAME\sql2016" -Databa
 
 $BackupMedia | Out-GridView -PassThru
 
-$BackupMedia | select LogicalName, PhysicalName
+$BackupMedia | Select-Object LogicalName, PhysicalName
 
 # restore over the existing database
 Restore-SqlDatabase -ServerInstance "$env:COMPUTERNAME\sql2016" -Database TestDB -BackupFile 'C:\Backups\2016\testdb.bak' -ReplaceDatabase -RestoreAction Database
@@ -126,17 +131,18 @@ Restore-SqlDatabase @RestoreParams
 # Not only but also
 
 # say we want to get some file info
-get-childitem "C:\WINDOWS\system32" | select Name, FullName, CreationTime, LastAccessTimeUtc, Length, PSIsContainer
+get-childitem "C:\WINDOWS\system32" | Select-Object Name, FullName, CreationTime, LastAccessTimeUtc, Length, PSIsContainer
 
 # messy, cant Format-Table help us ?
-get-childitem "C:\WINDOWS\system32" | select Name, FullName, CreationTime, LastAccessTimeUtc, Length, PSIsContainer | Format-Table -Wrap
+get-childitem "C:\WINDOWS\system32" | Select-Object Name, FullName, CreationTime, LastAccessTimeUtc, Length, PSIsContainer | Format-Table -Wrap
 
 # lets try applying some formatting
-get-childitem "C:\WINDOWS\system32" | select Name, FullName, @{name = "Create Time"; expression = {"{0:yyyyMMdd}" -f $_.CreationTime}} , LastAccessTimeUtc, @{Name = "SizeMB"; expression = {"{0:N3}" -f ($_.Length / 1mb)}}, @{name = "Type"; expression = {if ($_.PSIsContainer) {"Directory"}else {"File"}}} | Format-Table -Wrap
+get-childitem "C:\WINDOWS\system32" | Select-Object Name, FullName, @{name = "Create Time"; expression = {"{0:yyyyMMdd}" -f $_.CreationTime}} , LastAccessTimeUtc, @{Name = "SizeMB"; expression = {"{0:N3}" -f ($_.Length / 1mb)}}, @{name = "Type"; expression = {if ($_.PSIsContainer) {"Directory"}else {"File"}}} | Format-Table -Wrap
 
 # great.
 # but.
-# sheer awful to read / maintain
+# sheer awful to read / maintain - we are back to an huge long command
+
 
 # take each calculation and put it in a hash table
 $fmt = @{}
@@ -148,7 +154,7 @@ $fmt.Length = @{Name = "SizeMB"; expression = {"{0:N3}" -f ($_.Length / 1mb)}} #
 $fmt # the hash table contains 3 hash tables
 $fmt.CreationFormat # each hashtable contains a name and expression key. The name is the column name, the expression is the format / logic to apply to the object data
 
-get-childitem "C:\WINDOWS\system32" | select Name, FullName, $fmt.Length, $fmt.CreationFormat, LastAccessTimeUtc, $fmt.Container -First 5 
-get-childitem "C:\WINDOWS\system32" | select Name, FullName, $fmt.Length, $fmt.CreationFormat, LastAccessTimeUtc, $fmt.Container | Format-Table -Wrap
+get-childitem "C:\WINDOWS\system32" | Select-Object Name, FullName, $fmt.Length, $fmt.CreationFormat, LastAccessTimeUtc, $fmt.Container -First 5 
+get-childitem "C:\WINDOWS\system32" | Select-Object Name, FullName, $fmt.Length, $fmt.CreationFormat, LastAccessTimeUtc, $fmt.Container | Format-Table -Wrap
 
 # WARNING : be careful what logic you add in the formatting - this code runs for every item received from the pipeline so needs to be as efficient as possible
