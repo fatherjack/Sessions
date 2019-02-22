@@ -1,4 +1,4 @@
-# PowerShell doesnt have ISNULL like TSQL ... or does it?
+# PowerShell doesnt have ISNULL like TSQL ... 
 
 $a = "Something"
 $b = $null
@@ -6,13 +6,24 @@ $b = $null
 # if we create an array we dont see the $null. Who'd have thought eh ?!
 ($a, $b, "String") | Write-Output
 
+# if we compare a value to $null we get True or False
+$a -eq $null
+$b -eq $null
+"String" -eq $null
 
-# we can filter out nulls with -ne but again, we cant see that ...
-($a, $b, "String" -ne $null)
+# unless we compare an array
+$Array = $a, $b, "string"
+
+$Array -eq $null
+
+$Array -ne $null
+
+# so, we can filter out nulls with -ne but again, we cant see that ...
+$a, $b, "String" -ne $null
 
 
 # let's invert the filter for a minute
-($a, $b, "String", $null -eq $null)
+$a, $b, "String", $null -eq $null
 # yep, that sure shows that we filtered out everything except nulls .... 
 
 
@@ -72,5 +83,8 @@ Write-Host -BackgroundColor White -ForegroundColor Black "`rThe variable `$Serve
 # This is why we need to evaluate $null in PowerShell in this format - ($null -eq ...) or ($null -ne ...)
 ($null -ne $null)
 ($null -ne $a, "Alternate", $null).count
+$null -eq $Array
+
+# even if we try to refer to a value by index 
 ($null -ne $a, "Alternate")[0]
 

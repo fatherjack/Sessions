@@ -17,12 +17,14 @@ $PI
 "{0:F2}" -f ($PI * 10)
 
 
-
+### TODO - this doesnt work
 ###### REGEX FOR ERRORLOGs ######
 $Server = "$ENV:COMPUTERNAME\sql2016"
 $SMOServer = new-object ('Microsoft.SQLServer.Management.Smo.Server') $Server
 
 foreach ($log in $SMOServer.EnumErrorLogs() | Where-Object {$_.createdate -gt ((get-date).AddDays(-2))}) {
+    $content = get-content join-path $smoserver.ErrorLogPath "ERRORLOG.{0}" -f $($log.name)
+    
     $content | Where-Object text -match ("Error: \d{3,6}, Severity: \d{2,3}, State*") | Select-Object @{name = "Server"; expression = {$Server}}, logdate, text
 }
 
