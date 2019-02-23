@@ -44,6 +44,10 @@ About sysinternals - <https://live.sysinternals.com/About_This_Site.txt>
 
 ## 06 Working with Windows Firewall
 
+Get-NetFirewallRule <https://docs.microsoft.com/en-us/powershell/module/netsecurity/get-netfirewallrule>
+
+Get-NetFirewallPortFilter <https://docs.microsoft.com/en-us/powershell/module/netsecurity/get-netfirewallportfilter>
+
 ## 07 Functions to help you
 
 ## 08 SQLServer_PolicyEvaluation2

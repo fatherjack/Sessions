@@ -1,21 +1,22 @@
 ### Working with Windows Firewall
+#################################
 
 # general firewall details
-get-NetFirewallProfile | Out-GridView
+Get-NetFirewallProfile | Out-GridView
 
 # checking what rules are created
 Get-NetFirewallRule | Out-GridView
 (Get-NetFirewallRule).count
 
 # we only want enabled rules ...
-Get-NetFirewallRule | Where-Object Enabled -eq 'true' | Select-Object -first 5 | Format-Table -AutoSize
+Get-NetFirewallRule | Where-Object Enabled -eq 'true' | Select-Object -first 5 | Format-Table -Wrap -AutoSize
 (Get-NetFirewallRule | Where-Object Enabled -eq 'true').count
 
 # if troubleshooting failed connections then we only really want inbound block rules
 Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'true' -and $_.Action -eq 'Block' -and $_.Direction -eq 'Inbound'} | Select-Object -first 5 | Format-Table -AutoSize
-(Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'true' -and $_.Action -eq 'Block' -and $_.Direction -eq 'Inbound'}).count 
+(Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'true' -and $_.Action -eq 'Block' -and $_.Direction -eq 'Inbound'}) | measure
 
-# if troubleshooting a specific app (SQL) connections - is there a specific rule that mentions the service by name
+# if troubleshooting a specific app (eg SQL) connections - is there a specific rule that mentions the service by name
 Get-NetFirewallRule | Where-Object { $_.DisplayName -like "*sql*"} | Select-Object -first 5 | Format-Table -AutoSize
 
 # lets see what ports the Mirroring rule is allowing
@@ -27,11 +28,15 @@ $Rule | Get-NetFirewallPortFilter | Select-Object @{n = "RuleName"; e = {$rule.E
 
 # what about looking for ports that are part of a rule?
 # we can get the portfilter based on the port
-Get-NetFirewallPortFilter | Where-Object LocalPort -Match 56178
+Get-NetFirewallPortFilter | Where-Object LocalPort -Match 7022
 
 # and then use the CreationClassName to identify FW rules that are active on our chosen port
-$RulesWithPort = Get-NetFirewallPortFilter | Where-Object LocalPort -Match 56178
+$RulesWithPort = Get-NetFirewallPortFilter | Where-Object LocalPort -Match 7022
+# so we can then check which rules have that port
 Get-NetFirewallRule | Where-Object CreationClassName -EQ $RulesWithPort.CreationClassName | Select-Object DisplayName, Description, Action, Enabled | Format-Table -AutoSize
+# or a neater way with the -AssociatedNetFirewallPortFilter parameter
+Get-NetFirewallRule -AssociatedNetFirewallPortFilter $RulesWithPort | Select-Object DisplayName, Description, Action, Enabled | Format-Table -AutoSize # 5x faster
+
 
 # want to add a new rule
 $FWParams = @{
