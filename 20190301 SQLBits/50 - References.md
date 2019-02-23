@@ -16,6 +16,10 @@ Restore-SqlDatabase <https://docs.microsoft.com/en-us/powershell/module/sqlserve
 
 Custom Prompt <https://gist.github.com/fatherjack/9c005403b2ffcd95ce5c30d1dc5213d6>
 
+About Profiles <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-6>
+
+About Prompt <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-6>
+
 ## 03 Event Logs
 
 Windows Event Log <https://docs.microsoft.com/en-us/windows/desktop/WES/windows-event-log>
