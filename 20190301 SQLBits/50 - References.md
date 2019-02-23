@@ -32,8 +32,6 @@ Event Logs <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/wi
 
 Using Get-Winevent -FilterXml to process Windows Events <https://devblogs.microsoft.com/powershell/using-get-winevent-filterxml-to-process-windows-events/>
 
-## 04 SQL Query
-
 ## 04 SysInternals
 
 SysInternals download site <https://live.sysinternals.com/>
@@ -48,7 +46,13 @@ Get-NetFirewallRule <https://docs.microsoft.com/en-us/powershell/module/netsecur
 
 Get-NetFirewallPortFilter <https://docs.microsoft.com/en-us/powershell/module/netsecurity/get-netfirewallportfilter>
 
-## 07 Functions to help you
+## 07 Write Functions to help you
+
+About Functions <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions?view=powershell-6>
+
+About Functions Advanced <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced?view=powershell-6>
+
+About functions CmdletBinding <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_cmdletbindingattribute?view=powershell-6>
 
 ## 08 SQLServer_PolicyEvaluation2
 

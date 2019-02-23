@@ -29,8 +29,7 @@ function Function8 {
     $Location | Add-Content $OutputFilename -Force     
     $Completed_message
 }
-
-Get-Alias \\?
+Function8 "hello"
 
 
 
@@ -45,8 +44,9 @@ function Function8 {
     
     $Location | Add-Content $OutputFilename -Force     
     
-    $Completed_message | Write-Output   
+    Write-Output  $Completed_message  
 }
+Function8 "hello"
 
 
 # use Begin, Process, and End blocks
@@ -67,7 +67,7 @@ function Function8 {
     }
 }
 
-
+Function8 "hello"
 
 # add common comment block using command_help snippet
 function Function8 {
@@ -100,10 +100,11 @@ function Function8 {
         $Completed_message
     }
 }
+Function8 "hello"
 
 get-help Function8 -Examples
 
-# funciton cmdlet binding to make it work like a compiled  c#-like cmdlet
+# function cmdlet binding to make it work like a compiled  c#-like cmdlet
 <#
     ConfirmImpact
     DefaultParameterSetName
@@ -130,7 +131,6 @@ function Function8 {
         
     #>
     [cmdletbinding(SupportsShouldProcess = $True)]
-    [cmdletbinding()]
     param($Completed_message)
 
     begin {
@@ -149,13 +149,14 @@ get-help Function8
 
 get-help Function8 -Examples
 
-get-help Function8 -Full
+get-help Function8 -ShowWindow
 
+# SupportsShouldProcess lets us try out the function without risk of making changes
 Function8 -whatif
 
 
 $ErrorActionPreference = continue
-# define the parameters accurately
+# define the parameters accurately to increase chances of success
 function Function8 {
     <#
     .SYNOPSIS
@@ -184,20 +185,19 @@ function Function8 {
             HelpMessage = "the message to be displayed when complete")]
         [Alias("Msg")]
         [ValidateNotNullOrEmpty()]
-
         [string]$Completed_message,
         
-        # A parameter with a fixed range of values
+        # A parameter with a specific range of values
         [Parameter(Mandatory = $True)]
         [ValidateRange(1, 20)]
         [int]$MyInt,
+
         # A parameter with a fixed set of values
         [Parameter(Mandatory = $True)]
         [Validateset('Mars', 'Milky Way', 'Twix')]
         [string]$MySet
     )
     # Specifies a path to one or more locations.
-
 
     begin {
         $Location = Get-Location

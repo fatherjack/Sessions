@@ -14,7 +14,7 @@ Get-NetFirewallRule | Where-Object Enabled -eq 'true' | Select-Object -first 5 |
 
 # if troubleshooting failed connections then we only really want inbound block rules
 Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'true' -and $_.Action -eq 'Block' -and $_.Direction -eq 'Inbound'} | Select-Object -first 5 | Format-Table -AutoSize
-(Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'true' -and $_.Action -eq 'Block' -and $_.Direction -eq 'Inbound'}) | measure
+(Get-NetFirewallRule | Where-Object {$_.Enabled -eq 'true' -and $_.Action -eq 'Block' -and $_.Direction -eq 'Inbound'}) | Measure-Object
 
 # if troubleshooting a specific app (eg SQL) connections - is there a specific rule that mentions the service by name
 Get-NetFirewallRule | Where-Object { $_.DisplayName -like "*sql*"} | Select-Object -first 5 | Format-Table -AutoSize
