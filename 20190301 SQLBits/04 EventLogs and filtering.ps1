@@ -11,6 +11,7 @@ get-command get-winevent | Select-Object -ExpandProperty parameters
 
 # Check out the details of parameter ProviderName
 get-help get-winevent -parameter ProviderName
+
 # Check out the details of parameter ProviderName
 get-help get-winevent -Examples
 
@@ -21,8 +22,23 @@ Get-WinEvent -ProviderName "*SQL2016"
 (Get-WinEvent -ListLog Application).ProviderNames | Where-Object {$_ -like "*mssql*"}
 
 # or use the -ListProvider parameter
-$providers = Get-WinEvent -ListProvider * -ErrorAction SilentlyContinue | select name
+$providers = Get-WinEvent -ListProvider * -ErrorAction SilentlyContinue | Select-Object name
 $providers
+
+<#
+What can we filter on?
+Key name      type	      wildcard
+LogName	      <String[]>	Yes
+ProviderName	<String[]>	Yes
+Path	        <String[]>	No
+Keywords	    <Long[]>	  No
+ID      	    <Int32[]>	  No
+Level   	    <Int32[]>	  No
+StartTime   	<DateTime>	No
+EndTime	      <DataTime>	No
+UserID	      <SID>	      No
+Data    	    <String[]>	No
+#>
 
 # or another alternative route to see all possible providers in an event log
 $EventSession = [System.Diagnostics.Eventing.Reader.EventLogSession]::GlobalSession
@@ -105,7 +121,7 @@ finally {
 }
 
 # easiest way to build the XML Filter that you need
-C:\WINDOWS\system32\eventvwr.msc
+Invoke-Item C:\WINDOWS\system32\eventvwr.msc
 
 <#
 Log         ID      Message
