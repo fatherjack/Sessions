@@ -20,6 +20,8 @@ About Profiles <https://docs.microsoft.com/en-us/powershell/module/microsoft.pow
 
 About Prompt <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-6>
 
+About Providers <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_providers?view=powershell-6>
+
 ## 03 Event Logs
 
 Windows Event Log <https://docs.microsoft.com/en-us/windows/desktop/WES/windows-event-log>
@@ -27,6 +29,8 @@ Windows Event Log <https://docs.microsoft.com/en-us/windows/desktop/WES/windows-
 Event Viewer <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc766042(v=ws.11)>
 
 Event Logs <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc722404(v%3dws.11)>
+
+Using Get-Winevent -FilterXml to process Windows Events <https://devblogs.microsoft.com/powershell/using-get-winevent-filterxml-to-process-windows-events/>
 
 ## 04 SQL Query
 
@@ -93,6 +97,10 @@ Event Logs <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/wi
 ### About_... official help content
 
 <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/?view=powershell-6&viewFallbackFrom=powershell-5.1>
+
+### PowerShell team
+
+<https://devblogs.microsoft.com/powershell/>
 
 ### FatherJack on Github
 

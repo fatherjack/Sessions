@@ -18,12 +18,16 @@ function prompt {}
 function prompt {
     $level = ($PWD.Path.Split('\')).count
     
-    if ($level -gt 1) {
-        "SQLBITS "+(">" * $level)
+    if ($level -gt 2) {
+        "SQLBITS " + (">" * $level)
     }
-    + "> " 
+    else {
+        "SQLBITS >"
+    }
 }
 
+Set-location c:\
+Set-Location $Home\downloads
 
 # to persist a custom function you need to define it in your profile
 Get-Help about_Profiles  -showwindow
