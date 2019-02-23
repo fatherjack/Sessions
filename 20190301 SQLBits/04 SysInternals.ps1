@@ -9,11 +9,14 @@ get-childitem C:\Tools\sysinternals
 
 (get-childitem C:\Tools\sysinternals -Filter *.exe).count
 
+# BGinfo
+Start-Process "C:\Tools\sysinternals\BGinfo64.exe"
+
 # Process Explorer
 Start-Process "C:\Tools\sysinternals\procexp64.exe"
 
 # PSList - Process Information Lister 
-Start-Process "C:\Tools\sysinternals\pslist.exe" 
+Start-Process "C:\Tools\sysinternals\pslist.exe" # great but it disappears a bit quick!
 
 $list = Start-Process "C:\Tools\sysinternals\pslist.exe" 
 
@@ -25,7 +28,7 @@ $list
 
 $list = & "C:\Tools\sysinternals\pslist.exe"
 
-$list
+$list   # Finally!
 
 # how to keep them up to date
 Get-ChildItem "C:\Tools\sysinternals\autoruns.exe"

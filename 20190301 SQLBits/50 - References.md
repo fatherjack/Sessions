@@ -36,6 +36,10 @@ Using Get-Winevent -FilterXml to process Windows Events <https://devblogs.micros
 
 ## 04 SysInternals
 
+SysInternals download site <https://live.sysinternals.com/>
+
+About sysinternals - <https://live.sysinternals.com/About_This_Site.txt>
+
 ## 05 Custom Input Forms
 
 ## 06 Working with Windows Firewall
