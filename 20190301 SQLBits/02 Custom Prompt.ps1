@@ -1,6 +1,31 @@
 # customising your PowerShell prompt
-function prompt {$null}
 
+# specific to each session
+
+# when created, a custom prompt function - lives in your Function provider
+Get-Item function:\prompt
+
+Get-Command prompt
+
+Get-Help prompt -ShowWindow
+
+(get-item Function:\prompt).ScriptBlock
+
+# lets wipe the current one and add something new
+function prompt {}
+
+# lets have a > for each level we are in the current directory
+function prompt {
+    $level = ($PWD.Path.Split('\')).count
+    
+    if ($level -gt 1) {
+        "SQLBITS "+(">" * $level)
+    }
+    + "> " 
+}
+
+
+# to persist a custom function you need to define it in your profile
 Get-Help about_Profiles  -showwindow
 
 <# Current User, Current Host#> code $Home\Documents\WindowsPowerShell\Profile.ps1
@@ -18,4 +43,5 @@ code $profile
 code "C:\Users\Jonathan\Documents\WindowsPowerShell\Microsoft.VSCode_profile.ps1"
 
 
-(get-item Function:\prompt).ScriptBlock
+
+<# restore my custom profile#> # . "C:\Users\Jonathan\Documents\WindowsPowerShell\Microsoft.VSCode_profile.ps1"
