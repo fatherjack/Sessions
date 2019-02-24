@@ -88,13 +88,12 @@ About Do <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershel
 
 ## 16 Checking NETSTAT details
 
-## 17 Puzzle solving-SurfaceGo
+ConvertFrom-String <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-string?view=powershell-5.1>
+
 
 ## 17 Puzzle solving
 
-## 18 Ampersand - Call operator
-
-## 18-pwsh Ampersand
+## 18 Ampersand - the Call operator
 
 ## 19 Building strings - use the string builder
 
@@ -106,23 +105,6 @@ ArrayList <https://docs.microsoft.com/en-us/dotnet/api/system.collections.arrayl
 
 Array vs ArrayList <https://powershell.org/forums/topic/arraylist-c-vs-powershell-is-it-the-same-thing-or-not/>
 
-## 50 - References
-
-## 99 setup
-
-## 99 test area
-
-## ErrorlogContent
-
-## List
-
-## Misc_Regex_Formatting
-
-## Powershell medley
-
-## RaffleFooter
-
-## RaffleHeader
 
 ## Ref_README
 
