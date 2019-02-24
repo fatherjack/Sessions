@@ -7,42 +7,41 @@ Add-Type -AssemblyName Presentationframework, presentationcore
 # hashtable for GUI
 $wpf = @{}
 
-# a description ofour interface, in xml form
+# a description of our interface, in xml form
 $inputXML = Get-Content "C:\Users\Jonathan\Documents\Visual Studio 2017\Projects\GUI01\GUI01\MainWindow.xaml"
 
 $inputXML
 
+# where can we create all this?
+#Invoke-Item "C:\Users\Jonathan\Documents\Visual Studio 2017\Projects\GUI01\GUI01.sln"
+
 $firstItem = $inputXML | select -First 1
 
-$firstItem.GetType()
+[xml]$CleanedXML = $inputXML -replace 'mc:Ignorable="d"', '' -replace "x:N", 'N' -replace 'x:Class=".*?"', '' -replace 'd:DesignHeight="\d*?"', '' -replace 'd:DesignWidth"\d*?"', ''
 
-$CleanedXML = $inputXML -replace 'mc:Ignorable="d"','' -replace "x:N", 'N' -replace 'x:Class=".*?"','' -replace 'd:DesignHeight="\d*?"','' -replace 'd:DesignWidth"\d*?"',''
-
-# test for 'clean' content by trying to convert to xml
-[xml]$xaml = $CleanedXML
-
-$reader = New-Object system.xml.xmlnodereader $xaml
+$reader = New-Object system.xml.xmlnodereader  $CleanedXML
 
 # create our window object variable
 $tempForm = [windows.markup.xamlreader]::load($reader)
 
 $tempForm.GetType()
 
-$namednodes = $xaml.SelectNodes(("//*[@*[contains(translate(name(.),'n','N'),'Name')]]"))
+$namednodes = $CleanedXML.SelectNodes(("//*[@*[contains(translate(name(.),'n','N'),'Name')]]"))
 
-foreach($node in $namednodes ) {
+# place every named object into our $wpf hashtable
+foreach ($node in $namednodes ) {
     $wpf.Add($node.name, $tempform.FindName($node.Name))
 }
 
-$wpf.cmdOK.add_click(
+# add logic to be executed when a control event takes place. Here we are using the add_clikc method to add a click event to the cmdCheck button
+$wpf.cmdCheck.add_click(
     {
         # get values from form
         $Speaker = $wpf.txtSpeaker.Text
         $Session = $wpf.txtSession.Text
      
         # set values on form
-        switch ($Speaker)
-        {
+        switch ($Speaker) {
             'Jonathan' {
                 $wpf.imgSpeakerIamge.Source = "C:\Users\Jonathan\OneDrive\Pictures\MUG_s_400x400.jpg" 
             }
