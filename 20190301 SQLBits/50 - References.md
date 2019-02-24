@@ -40,6 +40,8 @@ About sysinternals - <https://live.sysinternals.com/About_This_Site.txt>
 
 ## 05 Custom Input Forms
 
+Jim Moyle <https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA>
+
 ## 06 Working with Windows Firewall
 
 Get-NetFirewallRule <https://docs.microsoft.com/en-us/powershell/module/netsecurity/get-netfirewallrule>
@@ -58,7 +60,13 @@ About functions CmdletBinding <https://docs.microsoft.com/en-us/powershell/modul
 
 ## 09 Formatting
 
+PowerShell: Using the -F operator <https://social.technet.microsoft.com/wiki/contents/articles/7855.powershell-using-the-f-format-operator.aspx>
+
+
+
 ## 10 Securing your files
+
+Get-FileHash <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6>
 
 ## 11 Getting it sorted
 
@@ -81,6 +89,16 @@ About functions CmdletBinding <https://docs.microsoft.com/en-us/powershell/modul
 ## 18 Ampersand - Call operator
 
 ## 18-pwsh Ampersand
+
+## 19 Building strings - use the string builder
+
+String Builder class <https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=netcore-2.2>
+
+## 20 Arrays
+
+ArrayList <https://docs.microsoft.com/en-us/dotnet/api/system.collections.arraylist?view=netcore-2.2>
+
+Array vs ArrayList <https://powershell.org/forums/topic/arraylist-c-vs-powershell-is-it-the-same-thing-or-not/>
 
 ## 50 - References
 

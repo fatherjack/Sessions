@@ -3,20 +3,22 @@ from https://blogs.technet.microsoft.com/dataplatform/2018/06/26/keeping-your-im
 
 #>
 # get the file hash of an installer 
-Get-FileHash -Path D:\ISO\2016/en_sql_server_2016_service_pack_1_x64_dvd_9542248.iso | Format-List
-# 
-Get-ChildItem D:\HashTest | Get-FileHash
-# 
-$IsoHash = Get-ChildItem D:\HashTest | Get-FileHash -Algorithm MD5
+Get-FileHash -Path "C:\LabSources\SoftwarePackages\PBIDesktop_x64.msi" | Format-List
 
-$IsoHash[2].Hash # 33B324D311FDFC68A9A3E3405B8CD222
+# hash all files in a directory
+Get-ChildItem C:\Backups -Recurse | Get-FileHash
 
-$IsoHash[2].Path # D:\ISO\en_sql_server_2016_service_pack_1_x64_dvd_9542248.iso
 
-$IsoHash[2].Algorithm# MD5
+$IsoHash = Get-ChildItem C:\Backups -Recurse | Get-FileHash -Algorithm MD5
 
-# 
-$FileToConfirm = "en_sql_server_2016"
+$IsoHash[2].Hash # EF1B451A436A4DB6790FDF84C6A8A33C
+
+$IsoHash[2].Path # C:\Backups\2016\TestDB2.bak
+
+$IsoHash[2].Algorithm # MD5
+
+# check if a file is in our set of hashes
+$FileToConfirm = "testdb1"
 $r = $IsoHash.path -match $FileToConfirm
 if ($r) {
     "$r found" | Write-Output
@@ -24,19 +26,17 @@ if ($r) {
 else {
     "No details found for $FileToConfirm" | Write-Output
 }
-# D:\HashTest\en_sql_server_2016_service_pack_1_x64_dvd_9542248.iso found
 
-# 
-# export to a file
-$IsoHash | Export-csv -Path "D:\HashTest\ISOArchive.csvh"
+# export all output to a file
+$IsoHash | Export-csv -Path "C:\HashTest\ISOArchive.csvh" -Force
 
 
 # # read hash from file and compare with newly calculated hash
 $ISOArchive = @()
-$ISOArchive = Import-csv -path "D:\hashtest\ISOArchive.csvh"
+$ISOArchive = Import-csv -path "C:\hashtest\ISOArchive.csvh"
 
 # choose the file we want to verify and get the hash of it right now
-$FileToCheck = "D:\hashtest\en_sql_server_2016_service_pack_1_x64_dvd_9542248.iso"
+$FileToCheck = "C:\Backups\2016\TestDB1.bak"
 $NewFileHash = Get-FileHash $FileToCheck -Algorithm MD5
 
 # check if the new hash is found in the archive
