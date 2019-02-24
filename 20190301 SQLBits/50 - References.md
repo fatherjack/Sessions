@@ -40,7 +40,9 @@ About sysinternals - <https://live.sysinternals.com/About_This_Site.txt>
 
 ## 05 Custom Input Forms
 
-Jim Moyle <https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA>
+Jim Moyle on Youtube <https://www.youtube.com/channel/UCjUtHlDsAIasXffpiORfwUA>
+
+Jim Moyle WPF + PowerShell <https://www.youtube.com/playlist?list=PLsg-xXEEmCJozYQCiBxO5ydYI1KIV2pI4>
 
 ## 06 Working with Windows Firewall
 
@@ -56,7 +58,9 @@ About Functions Advanced <https://docs.microsoft.com/en-us/powershell/module/mic
 
 About functions CmdletBinding <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_cmdletbindingattribute?view=powershell-6>
 
-## 08 SQLServer_PolicyEvaluation2
+## 08 SQLServer_PolicyEvaluation
+
+Monitoring and Enforcing Best Practices by Using Policy-Based Management <https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/cc645723(v%3dsql.100)>
 
 ## 09 Formatting
 
