@@ -6,7 +6,7 @@
 
 # set up
 if (Test-Path "C:\temp\Raffle.html") {Remove-Item "C:\temp\Raffle.html" }
-if(!(Test-Path "C:\Temp")){New-Item -Path "C:\Temp" -ItemType Directory}
+if (!(Test-Path "C:\Temp")) {New-Item -Path "C:\Temp" -ItemType Directory}
 $head = Get-Content (Join-Path $env:OneDrive "\Sessions\PowerShell Medley\RaffleHeader.html") # ii $head
 $Outfile = "C:\temp\Raffle.html"
 [int]$r = $null
@@ -35,26 +35,32 @@ ConvertTo-Html -Head $head -Body $frag -Title "Winning raffle ticket" > $Outfile
 # check it out 
 Invoke-Item $Outfile
 
-
-# perhaps you want to run a lottery ?
-$LuckyNumbers = 1..200 | % {get-random -minimum 1 -maximum 39} | Select-Object -Unique -First 6 Sort-Object
-
-write-host  $LuckyNumbers 
-
+# or perhaps you want to run a lottery ?
+########################################
+$LuckyNumbers = New-Object System.Collections.ArrayList
+do {
+    [int]$r = get-random -minimum 1 -maximum 39
+    if (!($LuckyNumbers.Contains($r) )) {
+        $waste = $LuckyNumbers.Add($r)
+    }
+}until ($LuckyNumbers.count -ge 6)
+$LuckyNumbers.sort() 
+write-host $LuckyNumbers
 $frag = 
 @"
-<H1>The winner of the {prize name} is:</H1>
-<TABLE>
+<H1 style="font-weight:bold; font-size:100px;font-family:verdana;">The winner of the SQLBits Lottery is:</H1>
+<TABLE style="font-weight:bold; font-size:50px;font-family:verdana;">
     <tr>
-        <td style="font-weight:bold; font-size:150px;">
-        $LuckyNumbers 
+        <td >
+        $LuckyNumbers
         </td>
     </tr>
 </TABLE>
 </body>
 </html>
 "@
-ConvertTo-Html -Head $head -Body $frag -Title "Winning raffle ticket" > $Outfile 
+ConvertTo-Html -Head $head -Body $frag -Title "Winning lottery ticket" > $Outfile 
 
 # check it out 
 Invoke-Item $Outfile
+

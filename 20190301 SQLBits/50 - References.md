@@ -66,15 +66,19 @@ Monitoring and Enforcing Best Practices by Using Policy-Based Management <https:
 
 PowerShell: Using the -F operator <https://social.technet.microsoft.com/wiki/contents/articles/7855.powershell-using-the-f-format-operator.aspx>
 
-
-
 ## 10 Securing your files
 
 Get-FileHash <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6>
 
 ## 11 Getting it sorted
 
+Sort Object <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/sort-object?view=powershell-6>
+
 ## 12 Running a raffle
+
+Get-Random <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-random?view=powershell-6>
+
+About Do <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_do?view=powershell-6>
 
 ## 13 ISNULL tsql
 
