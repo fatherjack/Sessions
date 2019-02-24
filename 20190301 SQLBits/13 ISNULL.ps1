@@ -14,6 +14,9 @@ $b -eq $null
 # unless we compare an array
 $Array = $a, $b, "string"
 
+Write-Host $Array
+$Array.GetType()
+
 $Array -eq $null
 
 $Array -ne $null
@@ -26,20 +29,22 @@ $a, $b, "String" -ne $null
 $a, $b, "String", $null -eq $null
 # yep, that sure shows that we filtered out everything except nulls .... 
 
-
 # lets count the elements in the array to see the effect of the filter
 ($a, $b, "String", $null).count
 ($a, $b, "String", $null -eq $null).count
 
 
 
-# OK, if we have an array of assorted values and nulls, the -ne $null removes the nulls
+# OK, so it's clear that if we have an array of assorted values and nulls, the -ne $null removes the nulls
 ($a, $b, "String" -ne $null)
 
-# to get the first not null value we can simply reference the first item
+# that means to get the first not null value we can simply reference the first item that passes the filter
 ($a, $b, "String" -ne $null)[0]
 
-# if we are referencing the first not null value and we provide the second value then we have something like ISNULL
+($b, $null -ne $null)[0]
+
+# if we are referencing the first not null value and we provide the second value then 
+# we have something like ISNULL
 $a = $null
 ($a, "Alternate" -ne $null)[0]
 
@@ -47,7 +52,7 @@ $a = $null
 
 
 # there we have it, a simple way to work like the TSQL ISNULL function
-function IsNull {
+function Test-IsNull {
     param (
         # The test value
         
@@ -65,18 +70,18 @@ function IsNull {
             HelpMessage = "The value that is substituted if `$Test is null.")]
             [string]$Alternate
     )
-    cls;
+    cls
     ($Test, $Alternate -ne $null)[0]
-};
+}
 
-$Svr = "ComputerNo9"
-$Server = IsNull $Svr "[Alternate value]"
-Write-Host -BackgroundColor White -ForegroundColor Black "`rThe variable `$Server has the value '$Server'." 
+$var = "ComputerNo9"
+$Server = Test-IsNull $Svr "[Alternate value]"
+Write-Host -BackgroundColor Gray -ForegroundColor Black "`rThe variable `$Server has the value '$Server'." 
 
 
-$Svr = $null
-$Server = IsNull $Svr "[Alternate value]"
-Write-Host -BackgroundColor White -ForegroundColor Black "`rThe variable `$Server has the value '$Server'." 
+$var = $null
+$Server = Test-IsNull $Svr "[Alternate value]"
+Write-Host -BackgroundColor Yellow -ForegroundColor Black "`rThe variable `$Server has the value '$Server'." 
 
 
 
@@ -85,6 +90,6 @@ Write-Host -BackgroundColor White -ForegroundColor Black "`rThe variable `$Serve
 ($null -ne $a, "Alternate", $null).count
 $null -eq $Array
 
-# even if we try to refer to a value by index 
+# even if we try to refer to a value by index we still get the boolean result, not the filter effect
 ($null -ne $a, "Alternate")[0]
 

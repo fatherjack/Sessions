@@ -20,12 +20,12 @@ $a[4..20] | ConvertFrom-String
 $a[4..20] | ConvertFrom-String | Select-Object p2, p3, p4, p5, p6 
 
 # place all of this into a new variable (also add filter - we dont want connections held by pid 0)
-$ns = $a[4..$a.count] | ConvertFrom-String | Select-Object p2, p3, p4, p5, p6 | Where-Object p6 -ne 0
+$ns = $a[4..$a.count] | ConvertFrom-String | Where-Object p6 -ne 0 | Select-Object p2, p3, p4, p5, p6 
 
 # group the info
 $ns | Group-Object p6 
 
-# which processes have the most connections
+# see which processes have the most connections
 $ns | Group-Object p6 | Sort-Object count -Descending 
 
 # if we expand the Group information we can use it ...
