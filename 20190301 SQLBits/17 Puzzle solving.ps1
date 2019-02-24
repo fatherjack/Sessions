@@ -1,4 +1,4 @@
-# Howe to find smallest +ve number that is exactly  divisible by all integers between 1 and 9 inclusive.
+# How to find smallest +ve number that is exactly divisible by all integers between 1 and 9, inclusive.
 
 # the modulo operator will get us the result we need
 
@@ -33,7 +33,7 @@
 
 10..5
 
-10.1..11.1 # only integers
+10.1..11.1 # only integers 10. to 11.1 doesnt work
 
 # Now we can send a range of values that need evaluating into our test
 1..6000 | ForEach-Object {

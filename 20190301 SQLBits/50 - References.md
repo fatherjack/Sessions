@@ -80,8 +80,6 @@ Get-Random <https://docs.microsoft.com/en-us/powershell/module/microsoft.powersh
 
 About Do <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_do?view=powershell-6>
 
-## 13 ISNULL tsql
-
 ## 13 ISNULL
 
 ## 14 wait, theres more
