@@ -37,8 +37,8 @@ foreach ($node in $namednodes ) {
 $wpf.cmdCheck.add_click(
     {
         # get values from form
-        $Speaker = $wpf.txtSpeaker.Text
-        $Session = $wpf.txtSession.Text
+        $script:speaker = $Speaker = $wpf.txtSpeaker.Text
+        $script:session = $Session = $wpf.txtSession.Text
      
         # set values on form
         switch ($Speaker) {
@@ -60,3 +60,10 @@ $wpf.WindowEvent.ShowDialog() | out-null
 
 # Accessing the values provided in the form ...
 Write-Output ("The user entered Speaker name {0} and Session title {1}" -f $Speaker, $Session)
+
+
+
+
+
+
+# yes, I know there is a spelling mistake in the image control name. thanks for paying attention though :)
