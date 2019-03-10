@@ -1,0 +1,15 @@
+# Ignore the files I dont want distribute
+
+# SQLBits 2019 edits
+\20190301 SQLBits\99 setup.ps1
+\20190301 SQLBits\99 test area.ps1
+\20190301 SQLBits\ErrorlogContent.txt
+\20190301 SQLBits\List.txt
+\20190301 SQLBits\Misc_Regex_Formatting.ps1
+\20190301 SQLBits\Powershell medley.pptx
+\20190301 SQLBits\RaffleFooter.html
+\20190301 SQLBits\RaffleHeader.html
+\20190301 SQLBits\Ref_geolytix_retailpoints_version12_oct18.txt
+\20190301 SQLBits\Ref_README.txt
+\20190301 SQLBits\RegexFilters.ps1
+\20190301 SQLBits\tempCodeRunnerFile.ps1
