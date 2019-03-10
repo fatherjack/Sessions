@@ -17,6 +17,8 @@ $inputXML
 
 $firstItem = $inputXML | select -First 1
 
+$firstItem
+
 [xml]$CleanedXML = $inputXML -replace 'mc:Ignorable="d"', '' -replace "x:N", 'N' -replace 'x:Class=".*?"', '' -replace 'd:DesignHeight="\d*?"', '' -replace 'd:DesignWidth"\d*?"', ''
 
 $reader = New-Object system.xml.xmlnodereader  $CleanedXML
@@ -59,8 +61,8 @@ $wpf.cmdCheck.add_click(
 $wpf.WindowEvent.ShowDialog() | out-null
 
 # Accessing the values provided in the form ...
-Write-Output ("The user entered Speaker name {0} and Session title {1}" -f $Speaker, $Session)
-
+Write-Output ("The user entered `r`nSpeaker name:`t{0} `r`nSession title:`t{1}" -f $Speaker, $Session)
+# it doesnt work unless you set the variable scope correctly in the click event
 
 
 

@@ -222,3 +222,5 @@ function8 -Completed_message "test" -MyInt 15 -MySet "Twix"
 
 # Function8 is a ridiculous name
 
+
+get-verb

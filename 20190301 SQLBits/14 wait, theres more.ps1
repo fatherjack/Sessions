@@ -11,8 +11,8 @@ Get-ChildItem
 (Get-ChildItem).count
 
 
-# isnt it easier if we pause the stream of items as it is displayed ....
-Get-ChildItem | Where-Object {$_.Length -gt 1MB} | sort-object name | more
+# isnt it easier to read and reference if we pause the stream of items as it is displayed ....?
+Get-ChildItem | Where-Object {$_.Length -gt 1MB} | Sort-Object Name | more
 
 Get-Help about_ | more 
 

@@ -84,12 +84,9 @@ About Do <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershel
 
 ## 14 wait, theres more
 
-## 15 EventLogs and filtering
-
 ## 16 Checking NETSTAT details
 
 ConvertFrom-String <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-string?view=powershell-5.1>
-
 
 ## 17 Puzzle solving
 
@@ -104,7 +101,6 @@ String Builder class <https://docs.microsoft.com/en-us/dotnet/api/system.text.st
 ArrayList <https://docs.microsoft.com/en-us/dotnet/api/system.collections.arraylist?view=netcore-2.2>
 
 Array vs ArrayList <https://powershell.org/forums/topic/arraylist-c-vs-powershell-is-it-the-same-thing-or-not/>
-
 
 ## Ref_README
 
@@ -129,3 +125,5 @@ Array vs ArrayList <https://powershell.org/forums/topic/arraylist-c-vs-powershel
 Gists - <https://gist.github.com/fatherjack>
 
 Repos - <https://github.com/fatherjack>
+
+PowerShell Toolmaking

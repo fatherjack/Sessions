@@ -50,3 +50,9 @@ catch {
 }
 
 $ErrorActionPreference = $ErrAction
+
+# tidy up processes that might interrupt us
+$processnames = @('*slack*', '*lync*', '*skype*')
+
+Get-Process  $processnames | Stop-Process
+
