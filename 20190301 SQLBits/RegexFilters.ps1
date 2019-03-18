@@ -12,3 +12,6 @@ $LogContent = get-content "C:\Program Files\Microsoft SQL Server\MSSQL13.SQL2016
 
 # SQL Server Build no
 ([Regex]::match($logContent, "(\d{1,2}.\d{1,2}.\d{3,4}.\d+)")).groups[1].value
+
+
+code $profile

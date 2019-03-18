@@ -7,7 +7,7 @@ PS C:\> [Regex]::Match($LogMsg, "Detected (\d+) MB of RAM")
 
 # SMO - ReadErrorlog method
 $SQLServer = Get-Item SQLServer:\SQL\Contoso\SQL2012Inst1 
-PS C:\> $SQLServer.ReadErrorLog() | Where-Object {$_.Text �match 'failed|error' �and $_.ProcessInfo �like 'backup'} 
+PS C:\> $SQLServer.ReadErrorLog() | Where-Object {$_.Text -match 'failed|error' -and $_.ProcessInfo -like 'backup'} 
 
 
 get-content is faster but readerrorlog returns a table that can be filtered and selected
