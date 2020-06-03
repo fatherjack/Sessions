@@ -6,3 +6,7 @@ Code for a session delivered more than once might evolve over time so files of t
 ## Something missing or not clear?
 
 Please post an issue for something from PowerShell that you want to know more about or explore in some detail.
+
+## Want a PowerShell challenge?
+
+Visit https://code-golf.io/ for some challenges in a variety of scripting languages.
