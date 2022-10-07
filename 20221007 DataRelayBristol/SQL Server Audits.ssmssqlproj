@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="SQL Server Audits">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="FOUNDRY\SQL2016:FOUNDRY\Jonathan">
+          <Created>2017-07-29T15:29:35.737508+01:00</Created>
+          <Type>SQL</Type>
+          <Server>FOUNDRY\SQL2016</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="FOUNDRY\SQL2017:FOUNDRY\Jonathan">
+          <Created>2022-10-03T09:15:34.9429321+01:00</Created>
+          <Type>SQL</Type>
+          <Server>FOUNDRY\SQL2017</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="MININT-CE1I3RR\SQL2016:FOUNDRY\Jonathan">
+          <Created>2017-05-31T17:13:33.5713333+01:00</Created>
+          <Type>SQL</Type>
+          <Server>MININT-CE1I3RR\SQL2016</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="01 - SQLServerAudit - Basics.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2017:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2017</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>01 - SQLServerAudit - Basics.sql</FullPath>
+        </FileNode>
+        <FileNode Name="02 - SQLServerAudit - Reading Audit files.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2017:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2017</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>02 - SQLServerAudit - Reading Audit files.sql</FullPath>
+        </FileNode>
+        <FileNode Name="03 - SQLServerAudit - Writing to an Event Log.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2017:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2017</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>03 - SQLServerAudit - Writing to an Event Log.sql</FullPath>
+        </FileNode>
+        <FileNode Name="04 - SQLServerAudit - Security.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2017:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2017</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>04 - SQLServerAudit - Security.sql</FullPath>
+        </FileNode>
+        <FileNode Name="05 - SQLServerAuditInfo.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2017:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2017</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05 - SQLServerAuditInfo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="06 - SQLServerAuditDMVs 01.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2017:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2017</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>06 - SQLServerAuditDMVs 01.sql</FullPath>
+        </FileNode>
+        <FileNode Name="10 - SQLAuditReferences.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2016:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2016</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>10 - SQLAuditReferences.sql</FullPath>
+        </FileNode>
+        <FileNode Name="81 - SQLServerAudit - ALTER DATABASE TEST.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2016:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2016</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>81 - SQLServerAudit - ALTER DATABASE TEST.sql</FullPath>
+        </FileNode>
+        <FileNode Name="99 - SQLServerAuditSetup.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2017:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2017</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>99 - SQLServerAuditSetup.sql</FullPath>
+        </FileNode>
+        <FileNode Name="07 - SQLServerAuditDMVs 02.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:FOUNDRY\SQL2017:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>FOUNDRY\SQL2017</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>07 - SQLServerAuditDMVs 02.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items>
+        <FileNode Name="Permissions_Poster_SQL_Server_2017_and_SQLDB.pdf">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Permissions_Poster_SQL_Server_2017_and_SQLDB.pdf</FullPath>
+        </FileNode>
+        <FileNode Name="SQLServerAudits.ps1">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>SQLServerAudits.ps1</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
